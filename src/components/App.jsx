@@ -18,6 +18,7 @@ export class App extends Component {
           newState[key]++;
         }
       }
+      console.log(Object.keys(this.state))
       return newState;
     });
   };
@@ -48,19 +49,23 @@ export class App extends Component {
       <div>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={this.state}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleBtnClick}
           />
         </Section>
         <Section title={'Statistics'}>
-          {!this.countTotalFeedback() ? <NotificationMessage message={'There is no feedback'}/> : <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />}
-        </Section>          
+          {!this.countTotalFeedback() ? (
+            <NotificationMessage message={'There is no feedback'} />
+          ) : (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
+        </Section>
       </div>
     );
   }

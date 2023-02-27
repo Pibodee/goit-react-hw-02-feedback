@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     return (
         <OptionContainer>
-        {Object.keys(options).map(
+        {options.map(
             key => {
                 return (
                     <Option type="button" key={key} onClick={onLeaveFeedback}>
@@ -20,6 +20,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.object.isRequired,
+    options: PropTypes.array.isRequired,
     onLeaveFeedback: PropTypes.func.isRequired
 }
