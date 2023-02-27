@@ -18,7 +18,6 @@ export class App extends Component {
           newState[key]++;
         }
       }
-      console.log(Object.keys(this.state))
       return newState;
     });
   };
