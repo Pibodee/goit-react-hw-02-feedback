@@ -42,7 +42,6 @@ export class App extends Component {
     return percentage;
   }
 
-
   render() {
     return (
       <div>
